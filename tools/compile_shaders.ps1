@@ -38,7 +38,7 @@ foreach ($file in $files) {
     $relativePath = $fullImagePath.Substring($screensRoot.Length).TrimStart('\','/')
 
     $relativeDir  = Split-Path $relativePath -Parent
-    $baseName     = $file.BaseName              
+    $baseName     = $file.BaseName
 
     if ([string]::IsNullOrEmpty($relativeDir)) {
         $hlslRelativePath = "$baseName.hlsl"
@@ -64,7 +64,7 @@ foreach ($file in $files) {
     $entry = [PSCustomObject]@{
         name   = $baseName
         group  = $groupName
-        title  = $baseName 
+        title  = $baseName
         image  = $imageWebPath
         shader = $shaderWebPath
     }
