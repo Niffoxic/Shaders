@@ -1,4 +1,6 @@
 name: Build HLSL Shaders
+permissions:
+  contents: write
 
 on:
   push:
