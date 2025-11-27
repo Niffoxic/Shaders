@@ -10,8 +10,8 @@ Write-Host "HlslDir        : $HlslDir"
 Write-Host "OutputPath     : $OutputPath"
 Write-Host ""
 
-$screensRoot = (Resolve-Path $ScreenshotsDir).Path
-$hlslRoot    = (Resolve-Path $HlslDir).Path
+$screensRoot = (Resolve-Path $ScreenshotsDir).ProviderPath
+$hlslRoot    = (Resolve-Path $HlslDir).ProviderPath
 
 Write-Host "Resolved paths:"
 Write-Host "  ScreenshotsRoot: $screensRoot"
@@ -20,12 +20,7 @@ Write-Host ""
 
 $imageExtensions = @("*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp")
 
-$files = Get-ChildItem `
-    -Path  $screensRoot `
-    -File `
-    -Recurse `
-    -Include $imageExtensions `
-    -ErrorAction SilentlyContinue
+$files = Get-ChildItem -Path $screensRoot -File -Recurse -Include $imageExtensions -ErrorAction SilentlyContinue
 
 if (-not $files -or $files.Count -eq 0) {
     Write-Warning "No screenshot files found under $screensRoot"
@@ -72,13 +67,15 @@ foreach ($file in $files) {
     $entries += $entry
 }
 
+
 $entries = $entries | Sort-Object group, name
+
 $docsDir = Split-Path $OutputPath -Parent
 if (-not (Test-Path $docsDir)) {
     New-Item -ItemType Directory -Path $docsDir | Out-Null
 }
 
-$entries | ConvertTo-Json -Depth 3 | Set-Content -Encoding UTF8 $OutputPath
+@($entries) | ConvertTo-Json -Depth 10 | Set-Content -Encoding UTF8 $OutputPath
 
 Write-Host ""
 Write-Host "Done. Wrote $($entries.Count) entries to $OutputPath"
