@@ -1,0 +1,7 @@
+{
+  "name": "01_basic_ps",
+  "group": "built-in-functions",
+  "title": "01_basic_ps",
+  "image": "../screenshots/built-in-functions/01_basic_ps.png",
+  "shader": "../hlsl/built-in-functions/01_basic_ps.hlsl"
+}
