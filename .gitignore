@@ -1,0 +1,34 @@
+# Shader Outputs
+*.cso
+*.hlsl.bin
+*.fxc.bin
+*.dxc.bin
+
+# DXC intermediate files
+*.pdb
+*.map
+
+# Build Artifacts
+/build/
+/bin/
+/out/
+/dist/
+/temp/
+/tmp/
+
+# Logs & Cache
+*.log
+*.cache
+*.tmp
+
+# OS / Tooling Junk
+# Windows
+Thumbs.db
+Desktop.ini
+# macOS
+.DS_Store
+
+# Tools Auto-Generated
+*.generated
+*.autogen
+*.scanner
