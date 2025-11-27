@@ -21,17 +21,30 @@ async function loadShaders() {
       const card = document.createElement("div");
       card.className = "card";
 
+      // Preview image
       const img = document.createElement("img");
       img.src = shader.image;
       img.alt = shader.title || shader.name || "Shader screenshot";
 
+      // Card body
       const body = document.createElement("div");
       body.className = "card-body";
 
+      // Title
       const title = document.createElement("div");
       title.className = "card-title";
-      title.textContent = shader.title || shader.name;
+      title.textContent = shader.title || shader.name || "(untitled shader)";
+      body.appendChild(title);
 
+      // Optional group (folder name)
+      if (shader.group && shader.group.length > 0) {
+        const group = document.createElement("div");
+        group.className = "card-group";
+        group.textContent = shader.group;
+        body.appendChild(group);
+      }
+
+      // Links
       const links = document.createElement("div");
       links.className = "card-links";
 
@@ -43,18 +56,17 @@ async function loadShaders() {
         links.appendChild(linkShader);
       }
 
-      const linkRaw = document.createElement("a");
-      linkRaw.href = shader.image;
-      linkRaw.textContent = "Open image";
-      linkRaw.target = "_blank";
-      links.appendChild(linkRaw);
+      if (shader.image) {
+        const linkRaw = document.createElement("a");
+        linkRaw.href = shader.image;
+        linkRaw.textContent = "Open image";
+        linkRaw.target = "_blank";
+        links.appendChild(linkRaw);
+      }
 
-      body.appendChild(title);
       body.appendChild(links);
-
       card.appendChild(img);
       card.appendChild(body);
-
       gridEl.appendChild(card);
     });
   } catch (err) {

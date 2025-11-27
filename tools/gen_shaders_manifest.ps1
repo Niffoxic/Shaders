@@ -1,7 +1,7 @@
 param(
     [string]$ScreenshotsDir = "screenshots",
     [string]$HlslDir        = "hlsl",
-    [string]$OutputPath     = "docs/shaders.json"
+    [string]$OutputPath     = "shaders.json"
 )
 
 Write-Host "=== Generating shader manifest ==="
@@ -46,8 +46,8 @@ foreach ($file in $files) {
         Write-Warning "No matching HLSL for screenshot: $relativePath (expected: $hlslFullPath)"
     }
 
-    $imageWebPath  = "../screenshots/" + ($relativePath     -replace '\\','/')
-    $shaderWebPath = "../hlsl/"        + ($hlslRelativePath -replace '\\','/')
+    $imageWebPath  = "screenshots/" + ($relativePath     -replace '\\','/')
+    $shaderWebPath = "hlsl/"        + ($hlslRelativePath -replace '\\','/')
 
     $groupName = if ([string]::IsNullOrEmpty($relativeDir)) { "" } else { $relativeDir -replace '\\','/' }
 
@@ -62,9 +62,9 @@ foreach ($file in $files) {
     $entries.Add($entry)
 }
 
-$docsDir = Split-Path $OutputPath -Parent
-if (-not (Test-Path $docsDir)) {
-    New-Item -ItemType Directory -Path $docsDir | Out-Null
+$targetDir = Split-Path $OutputPath -Parent
+if ($targetDir -and -not (Test-Path $targetDir)) {
+    New-Item -ItemType Directory -Path $targetDir | Out-Null
 }
 
 $entries.ToArray() | ConvertTo-Json -Depth 10 | Set-Content -Encoding UTF8 $OutputPath
