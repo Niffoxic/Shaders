@@ -26,12 +26,11 @@ if (-not $files -or $files.Count -eq 0) {
     Write-Warning "No screenshot files found under $screensRoot"
 }
 
-$entries = @()
+$entries = New-Object System.Collections.Generic.List[Object]
 
 foreach ($file in $files) {
-    $fullImagePath = $file.FullName
 
-    $relativePath = $fullImagePath.Substring($screensRoot.Length).TrimStart('\','/')
+    $relativePath = $file.FullName.Substring($screensRoot.Length).TrimStart('\','/')
     $relativeDir  = Split-Path $relativePath -Parent
     $baseName     = $file.BaseName
 
@@ -50,11 +49,7 @@ foreach ($file in $files) {
     $imageWebPath  = "../screenshots/" + ($relativePath     -replace '\\','/')
     $shaderWebPath = "../hlsl/"        + ($hlslRelativePath -replace '\\','/')
 
-    $groupName = if ([string]::IsNullOrEmpty($relativeDir)) {
-        ""
-    } else {
-        $relativeDir -replace '\\','/'
-    }
+    $groupName = if ([string]::IsNullOrEmpty($relativeDir)) { "" } else { $relativeDir -replace '\\','/' }
 
     $entry = [PSCustomObject]@{
         name   = $baseName
@@ -64,18 +59,15 @@ foreach ($file in $files) {
         shader = $shaderWebPath
     }
 
-    $entries += $entry
+    $entries.Add($entry)
 }
-
-
-$entries = $entries | Sort-Object group, name
 
 $docsDir = Split-Path $OutputPath -Parent
 if (-not (Test-Path $docsDir)) {
     New-Item -ItemType Directory -Path $docsDir | Out-Null
 }
 
-@($entries) | ConvertTo-Json -Depth 10 | Set-Content -Encoding UTF8 $OutputPath
+$entries.ToArray() | ConvertTo-Json -Depth 10 | Set-Content -Encoding UTF8 $OutputPath
 
 Write-Host ""
 Write-Host "Done. Wrote $($entries.Count) entries to $OutputPath"
