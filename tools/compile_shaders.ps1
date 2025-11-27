@@ -1,83 +1,85 @@
-param
-(
-    [string]$Root = ".",
-    [string]$EntryPoint = "main"
+param(
+    [string]$ScreenshotsDir = "screenshots",
+    [string]$HlslDir        = "hlsl",
+    [string]$OutputPath     = "docs/shaders.json"
 )
 
-$ErrorActionPreference = "Stop"
-
-Write-Host "HLSL Shader Compile Script"
-Write-Host "Root: $Root"
-Write-Host "Entry point: $EntryPoint"
+Write-Host "=== Generating shader manifest ==="
+Write-Host "ScreenshotsDir : $ScreenshotsDir"
+Write-Host "HlslDir        : $HlslDir"
+Write-Host "OutputPath     : $OutputPath"
 Write-Host ""
 
-# Find all .hlsl files under the root
-$shaderFiles = Get-ChildItem -Path $Root -Recurse -Include *.hlsl
+$screensRoot = (Resolve-Path $ScreenshotsDir).Path
+$hlslRoot    = (Resolve-Path $HlslDir).Path
 
-if (-not $shaderFiles)
-{
-    Write-Host "No .hlsl files found. Nothing to do."
-    exit 0
+Write-Host "Resolved paths:"
+Write-Host "  ScreenshotsRoot: $screensRoot"
+Write-Host "  HlslRoot       : $hlslRoot"
+Write-Host ""
+
+$imageExtensions = @("*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp")
+
+$files = Get-ChildItem `
+    -Path  $screensRoot `
+    -File `
+    -Recurse `
+    -Include $imageExtensions
+
+if ($files.Count -eq 0) {
+    Write-Warning "No screenshot files found under $screensRoot"
 }
 
-# get profile from filename
-function Get-ShaderProfile([string]$name)
-{
-    if     ($name -match "_vs\.hlsl$") { return "vs_6_0" }
-    elseif ($name -match "_ps\.hlsl$") { return "ps_6_0" }
-    elseif ($name -match "_cs\.hlsl$") { return "cs_6_0" }
-    elseif ($name -match "_gs\.hlsl$") { return "gs_6_0" }
-    elseif ($name -match "_hs\.hlsl$") { return "hs_6_0" }
-    elseif ($name -match "_ds\.hlsl$") { return "ds_6_0" }
-    else { return $null }
-}
+$entries = @()
 
-$overallExitCode = 0
+foreach ($file in $files) {
+    $fullImagePath = $file.FullName
 
-foreach ($shader in $shaderFiles) 
-{
-    $profile = Get-ShaderProfile $shader.Name
+    $relativePath = $fullImagePath.Substring($screensRoot.Length).TrimStart('\','/')
 
-    if (-not $profile) 
-    {
-        Write-Host "Skipping (unknown type): $($shader.FullName)"
-        continue
+    $relativeDir  = Split-Path $relativePath -Parent
+    $baseName     = $file.BaseName              
+
+    if ([string]::IsNullOrEmpty($relativeDir)) {
+        $hlslRelativePath = "$baseName.hlsl"
+    } else {
+        $hlslRelativePath = Join-Path $relativeDir "$baseName.hlsl"
     }
 
-    # Output path - same folder with .cso extension
-    $outPath = [System.IO.Path]::ChangeExtension($shader.FullName, ".cso")
+    $hlslFullPath = Join-Path $hlslRoot $hlslRelativePath
 
-    Write-Host "Compiling: $($shader.FullName)"
-    Write-Host "  Profile: $profile"
-    Write-Host "  Output : $outPath"
-
-    # Call DXC
-    & dxc.exe `
-        -T $profile `
-        -E $EntryPoint `
-        -Fo $outPath `
-        $shader.FullName
-
-    if ($LASTEXITCODE -ne 0) 
-    {
-        Write-Error "Failed to compile: $($shader.FullName) (exit code $LASTEXITCODE)"
-        $overallExitCode = 1
-    }
-    else 
-    {
-        Write-Host "  OK"
+    if (-not (Test-Path $hlslFullPath)) {
+        Write-Warning "No matching HLSL for screenshot: $relativePath (expected: $hlslFullPath)"
     }
 
-    Write-Host ""
+    $imageWebPath  = "../screenshots/" + ($relativePath     -replace '\\','/')
+    $shaderWebPath = "../hlsl/"        + ($hlslRelativePath -replace '\\','/')
+
+    $groupName = if ([string]::IsNullOrEmpty($relativeDir)) {
+        ""
+    } else {
+        $relativeDir -replace '\\','/'
+    }
+
+    $entry = [PSCustomObject]@{
+        name   = $baseName
+        group  = $groupName
+        title  = $baseName 
+        image  = $imageWebPath
+        shader = $shaderWebPath
+    }
+
+    $entries += $entry
 }
 
-if ($overallExitCode -ne 0) 
-{
-    Write-Error "One or more shaders failed to compile."
-}
-else 
-{
-    Write-Host "All shaders compiled successfully."
+$entries = $entries | Sort-Object group, name
+
+$docsDir = Split-Path $OutputPath -Parent
+if (-not (Test-Path $docsDir)) {
+    New-Item -ItemType Directory -Path $docsDir | Out-Null
 }
 
-exit $overallExitCode
+$entries | ConvertTo-Json -Depth 3 | Set-Content -Encoding UTF8 $OutputPath
+
+Write-Host ""
+Write-Host "Done. Wrote $($entries.Count) entries to $OutputPath"
