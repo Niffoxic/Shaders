@@ -3,112 +3,112 @@
     "name": "01_basic_ps",
     "group": "built-in-functions",
     "title": "01_basic_ps",
-    "image": "../screenshots/built-in-functions/01_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/01_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/01_basic_ps.png",
+    "shader": "hlsl/built-in-functions/01_basic_ps.hlsl"
   },
   {
     "name": "02_basic_ps",
     "group": "built-in-functions",
     "title": "02_basic_ps",
-    "image": "../screenshots/built-in-functions/02_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/02_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/02_basic_ps.png",
+    "shader": "hlsl/built-in-functions/02_basic_ps.hlsl"
   },
   {
     "name": "03_basic_ps",
     "group": "built-in-functions",
     "title": "03_basic_ps",
-    "image": "../screenshots/built-in-functions/03_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/03_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/03_basic_ps.png",
+    "shader": "hlsl/built-in-functions/03_basic_ps.hlsl"
   },
   {
     "name": "04_basic_ps",
     "group": "built-in-functions",
     "title": "04_basic_ps",
-    "image": "../screenshots/built-in-functions/04_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/04_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/04_basic_ps.png",
+    "shader": "hlsl/built-in-functions/04_basic_ps.hlsl"
   },
   {
     "name": "05_basic_ps",
     "group": "built-in-functions",
     "title": "05_basic_ps",
-    "image": "../screenshots/built-in-functions/05_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/05_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/05_basic_ps.png",
+    "shader": "hlsl/built-in-functions/05_basic_ps.hlsl"
   },
   {
     "name": "06_basic_ps",
     "group": "built-in-functions",
     "title": "06_basic_ps",
-    "image": "../screenshots/built-in-functions/06_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/06_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/06_basic_ps.png",
+    "shader": "hlsl/built-in-functions/06_basic_ps.hlsl"
   },
   {
     "name": "07_basic_ps",
     "group": "built-in-functions",
     "title": "07_basic_ps",
-    "image": "../screenshots/built-in-functions/07_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/07_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/07_basic_ps.png",
+    "shader": "hlsl/built-in-functions/07_basic_ps.hlsl"
   },
   {
     "name": "08_basic_ps",
     "group": "built-in-functions",
     "title": "08_basic_ps",
-    "image": "../screenshots/built-in-functions/08_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/08_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/08_basic_ps.png",
+    "shader": "hlsl/built-in-functions/08_basic_ps.hlsl"
   },
   {
     "name": "09_basic_ps",
     "group": "built-in-functions",
     "title": "09_basic_ps",
-    "image": "../screenshots/built-in-functions/09_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/09_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/09_basic_ps.png",
+    "shader": "hlsl/built-in-functions/09_basic_ps.hlsl"
   },
   {
     "name": "10_basic_ps",
     "group": "built-in-functions",
     "title": "10_basic_ps",
-    "image": "../screenshots/built-in-functions/10_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/10_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/10_basic_ps.png",
+    "shader": "hlsl/built-in-functions/10_basic_ps.hlsl"
   },
   {
     "name": "11_basic_ps",
     "group": "built-in-functions",
     "title": "11_basic_ps",
-    "image": "../screenshots/built-in-functions/11_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/11_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/11_basic_ps.png",
+    "shader": "hlsl/built-in-functions/11_basic_ps.hlsl"
   },
   {
     "name": "12_basic_ps",
     "group": "built-in-functions",
     "title": "12_basic_ps",
-    "image": "../screenshots/built-in-functions/12_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/12_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/12_basic_ps.png",
+    "shader": "hlsl/built-in-functions/12_basic_ps.hlsl"
   },
   {
     "name": "13_basic_ps",
     "group": "built-in-functions",
     "title": "13_basic_ps",
-    "image": "../screenshots/built-in-functions/13_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/13_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/13_basic_ps.png",
+    "shader": "hlsl/built-in-functions/13_basic_ps.hlsl"
   },
   {
     "name": "14_basic_ps",
     "group": "built-in-functions",
     "title": "14_basic_ps",
-    "image": "../screenshots/built-in-functions/14_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/14_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/14_basic_ps.png",
+    "shader": "hlsl/built-in-functions/14_basic_ps.hlsl"
   },
   {
     "name": "15_basic_ps",
     "group": "built-in-functions",
     "title": "15_basic_ps",
-    "image": "../screenshots/built-in-functions/15_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/15_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/15_basic_ps.png",
+    "shader": "hlsl/built-in-functions/15_basic_ps.hlsl"
   },
   {
     "name": "16_basic_ps",
     "group": "built-in-functions",
     "title": "16_basic_ps",
-    "image": "../screenshots/built-in-functions/16_basic_ps.png",
-    "shader": "../hlsl/built-in-functions/16_basic_ps.hlsl"
+    "image": "screenshots/built-in-functions/16_basic_ps.png",
+    "shader": "hlsl/built-in-functions/16_basic_ps.hlsl"
   }
 ]
