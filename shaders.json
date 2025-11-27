@@ -110,5 +110,40 @@
     "title": "16_basic_ps",
     "image": "screenshots/built-in-functions/16_basic_ps.png",
     "shader": "hlsl/built-in-functions/16_basic_ps.hlsl"
+  },
+  {
+    "name": "17_fract_ps",
+    "group": "built-in-functions",
+    "title": "17_fract_ps",
+    "image": "screenshots/built-in-functions/17_fract_ps.png",
+    "shader": "hlsl/built-in-functions/17_fract_ps.hlsl"
+  },
+  {
+    "name": "18_tilePattern_ps",
+    "group": "built-in-functions",
+    "title": "18_tilePattern_ps",
+    "image": "screenshots/built-in-functions/18_tilePattern_ps.png",
+    "shader": "hlsl/built-in-functions/18_tilePattern_ps.hlsl"
+  },
+  {
+    "name": "19_grid_ps",
+    "group": "built-in-functions",
+    "title": "19_grid_ps",
+    "image": "screenshots/built-in-functions/19_grid_ps.png",
+    "shader": "hlsl/built-in-functions/19_grid_ps.hlsl"
+  },
+  {
+    "name": "20_mod_ps",
+    "group": "built-in-functions",
+    "title": "20_mod_ps",
+    "image": "screenshots/built-in-functions/20_mod_ps.png",
+    "shader": "hlsl/built-in-functions/20_mod_ps.hlsl"
+  },
+  {
+    "name": "21_mix_ps",
+    "group": "built-in-functions",
+    "title": "21_mix_ps",
+    "image": "screenshots/built-in-functions/21_mix_ps.png",
+    "shader": "hlsl/built-in-functions/21_mix_ps.hlsl"
   }
 ]
