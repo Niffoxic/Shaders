@@ -145,5 +145,26 @@
     "title": "21_mix_ps",
     "image": "screenshots/built-in-functions/21_mix_ps.png",
     "shader": "hlsl/built-in-functions/21_mix_ps.hlsl"
+  },
+  {
+    "name": "22_bilinearInterpolation_ps",
+    "group": "built-in-functions",
+    "title": "22_bilinearInterpolation_ps",
+    "image": "screenshots/built-in-functions/22_bilinearInterpolation_ps.png",
+    "shader": "hlsl/built-in-functions/22_bilinearInterpolation_ps.hlsl"
+  },
+  {
+    "name": "23_smoothStep_ps",
+    "group": "built-in-functions",
+    "title": "23_smoothStep_ps",
+    "image": "screenshots/built-in-functions/23_smoothStep_ps.png",
+    "shader": "hlsl/built-in-functions/23_smoothStep_ps.hlsl"
+  },
+  {
+    "name": "24_abs_ps",
+    "group": "built-in-functions",
+    "title": "24_abs_ps",
+    "image": "screenshots/built-in-functions/24_abs_ps.png",
+    "shader": "hlsl/built-in-functions/24_abs_ps.hlsl"
   }
 ]
