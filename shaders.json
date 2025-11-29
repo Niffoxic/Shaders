@@ -166,5 +166,47 @@
     "title": "24_abs_ps",
     "image": "screenshots/built-in-functions/24_abs_ps.png",
     "shader": "hlsl/built-in-functions/24_abs_ps.hlsl"
+  },
+  {
+    "name": "25_Rhomb_ps",
+    "group": "built-in-functions",
+    "title": "25_Rhomb_ps",
+    "image": "screenshots/built-in-functions/25_Rhomb_ps.png",
+    "shader": "hlsl/built-in-functions/25_Rhomb_ps.hlsl"
+  },
+  {
+    "name": "26_Ceil_ps",
+    "group": "built-in-functions",
+    "title": "26_Ceil_ps",
+    "image": "screenshots/built-in-functions/26_Ceil_ps.png",
+    "shader": "hlsl/built-in-functions/26_Ceil_ps.hlsl"
+  },
+  {
+    "name": "27_intFloor_ps",
+    "group": "built-in-functions",
+    "title": "27_intFloor_ps",
+    "image": "screenshots/built-in-functions/27_intFloor_ps.png",
+    "shader": "hlsl/built-in-functions/27_intFloor_ps.hlsl"
+  },
+  {
+    "name": "28_length_ps",
+    "group": "built-in-functions",
+    "title": "28_length_ps",
+    "image": "screenshots/built-in-functions/28_length_ps.png",
+    "shader": "hlsl/built-in-functions/28_length_ps.hlsl"
+  },
+  {
+    "name": "29_aspectRatio_ps",
+    "group": "built-in-functions",
+    "title": "29_aspectRatio_ps",
+    "image": "screenshots/built-in-functions/29_aspectRatio_ps.png",
+    "shader": "hlsl/built-in-functions/29_aspectRatio_ps.hlsl"
+  },
+  {
+    "name": "30_atan_ps",
+    "group": "built-in-functions",
+    "title": "30_atan_ps",
+    "image": "screenshots/built-in-functions/30_atan_ps.png",
+    "shader": "hlsl/built-in-functions/30_atan_ps.hlsl"
   }
 ]
