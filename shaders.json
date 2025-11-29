@@ -208,5 +208,19 @@
     "title": "30_atan_ps",
     "image": "screenshots/built-in-functions/30_atan_ps.png",
     "shader": "hlsl/built-in-functions/30_atan_ps.hlsl"
+  },
+  {
+    "name": "31_sin_ps",
+    "group": "built-in-functions",
+    "title": "31_sin_ps",
+    "image": "screenshots/built-in-functions/31_sin_ps.png",
+    "shader": "hlsl/built-in-functions/31_sin_ps.hlsl"
+  },
+  {
+    "name": "32_vectorNorm_ps",
+    "group": "built-in-functions",
+    "title": "32_vectorNorm_ps",
+    "image": "screenshots/built-in-functions/32_vectorNorm_ps.png",
+    "shader": "hlsl/built-in-functions/32_vectorNorm_ps.hlsl"
   }
 ]
